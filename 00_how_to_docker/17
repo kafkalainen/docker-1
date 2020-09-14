@@ -1,0 +1,4 @@
+#!/bin/bash
+#Display all the currently active containers on the Char virtual machine.
+#All the active ones can be seen with command:
+docker ps

@@ -1,0 +1,11 @@
+#!/bin/bash
+#This runs Hello World container, if it is not found, it will also download it from the server.
+#Run docker ps all to see all images that are currently installed.
+#This will build the docker image based on the dockerfile with given tag:
+#docker build --tag bulletinboard:1.0 .
+#This will run docker image, and hook it to port 8080:
+#sudo docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0
+#docker stop bb stops it running
+#docker rm will remove image
+#docker run hello-world
+docker pull hello-world

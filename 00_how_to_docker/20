@@ -1,0 +1,8 @@
+#!/bin/bash
+#Create a local swarm, the Char virtual machine should be its manager.
+#Use docker-machine to ssh to VM in question
+docker-machine ssh Char
+#Then initiate swarm at the ip address of the VM.
+docker swarm init --advertise-addr 192.168.99.100
+#That gives you the token to use to join to the swarm.
+#docker swarm join --token SWMTKN-1-53zkab68llxnkntg9xzzagfr4fkc4qq0fvlscpi7rjowcyajwn-5xzxadz73dqqt5uif71f6z29n 192.168.99.100:2377

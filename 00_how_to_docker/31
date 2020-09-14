@@ -1,0 +1,6 @@
+#!/bin/bash
+#Forces quit and delete all the services on the local swarm, in one command.
+#Docker service rm does not check whether the service is running or not, so it is equivalent of forcefully ending the execution of the service.
+docker service rm $(docker service ls --quiet)
+#One could also stop the service entirely before running service removal.
+#docker stop $(docker ps --all --quiet) && docker service rm $(docker service ls --quiet)

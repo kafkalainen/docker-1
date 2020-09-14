@@ -1,0 +1,4 @@
+#!/bin/bash
+#List all the Docker volumes created on the machine. Remember. VOLUMES.
+#To list all the volumes:
+docker volume ls

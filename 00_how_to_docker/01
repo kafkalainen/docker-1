@@ -1,0 +1,4 @@
+#Create a virtual machine with docker-machine using the virtualbox driver and it's named Char
+#!/bin/bash
+#Create a virtual machine.
+docker-machine create --driver virtualbox Char

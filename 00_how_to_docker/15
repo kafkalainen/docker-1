@@ -1,0 +1,8 @@
+#!/bin/bash
+#Launch a phpmyadmin container as a background task. It should be named roach-warden,
+#its 80 port should be bound to the 8081 port of the virtual machine and it should
+#be able to explore the database stored in the spawning-pool container.
+#Your environment must be set to Char:
+#eval $(docker-machine env Char)
+#Then run:
+docker run --name roach-warden -p 8081:80 --link spawning-pool:db -d phpmyadmin:latest

@@ -1,0 +1,5 @@
+#!/bin/bash
+#Launch a 42school/engineering-bay service in two replicas and make sure that
+#the service works properly (see the documentation provided at hub.docker.com).
+#This service will be named engineering-bay and will be on the overmind network.
+docker service create --name engineering-bay --replicas 2 --network overmind --env OC_USERNAME=bugs-bunny --env OC_PASSWD=carrot 42school/engineering-bay

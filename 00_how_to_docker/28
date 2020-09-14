@@ -1,0 +1,8 @@
+#!/bin/bash
+#... Damn it, a group of zergs is attacking orbital-command, and shutting down
+#the engineering-bay service won’t help at all... You must send a troup of Marines
+#to eliminate the intruders. Launch a 42school/marine-squad in two replicas,
+#and make sure that the service works properly (see the documentation provided
+#at hub.docker.com). This service will be named... marines and will be on the
+#overmind network.
+docker service create --name marines --network overmind --replicas 2 --env OC_USERNAME=bugs-bunny --env OC_PASSWD=carrot 42school/marine-squad

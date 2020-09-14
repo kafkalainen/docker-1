@@ -1,0 +1,5 @@
+#!/bin/bash
+#You could list the open computers, and grep Char. One other option is using env variables,
+#docker-machine env Char | grep "DOCKER_HOST" | cut -d\" -f2
+#docker-machine ls | grep "Char" | awk '{ print $5 }'
+docker-machine ip

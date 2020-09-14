@@ -1,0 +1,5 @@
+#!/bin/bash
+#Create another virtual machine with docker-machine using the virtualbox driver,
+#and name it Aiur.
+#Create a virtual machine.
+docker-machine create --driver virtualbox Aiur

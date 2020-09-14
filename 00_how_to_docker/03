@@ -1,0 +1,6 @@
+#!/bin/bash
+#I would reckon it is this command sets all the environment variables: eval $(docker-machine env <machinename>)
+#Change the local docker environment variables to the demo-machine ones:
+#eval $(docker-machine env demo-machine)
+#You’re now targeting demo-machine when using any docker commands. To validate which docker-machine you point to, use this command:
+eval $(docker-machine env Char)

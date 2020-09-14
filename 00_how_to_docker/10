@@ -1,0 +1,7 @@
+#!/bin/bash
+#To create volumes of hatcheries to cover the face of Char, you must give a following command.
+#docker volume create [OPTIONS] [VOLUME]
+#Volume names must be unique among drivers.
+#This means you cannot use the same volume name with two different drivers.
+#More precisely:
+docker volume create --name hatchery

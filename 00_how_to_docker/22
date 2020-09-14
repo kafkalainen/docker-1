@@ -1,0 +1,8 @@
+#!/bin/bash
+#Turn Aiur into a slave of the local swarm in which Char is leader (the command to
+#take control of Aiur is not requested).
+#First ssh to Aiur.
+docker-machine ssh Aiur
+#Then run the command that we previously received.
+docker swarm join --token SWMTKN-1-53zkab68llxnkntg9xzzagfr4fkc4qq0fvlscpi7rjowcyajwn-5xzxadz73dqqt5uif71f6z29n 192.168.99.100:2377
+#Then exit and switch env variables to Char. run docker node ls to see that Aiur is correctly added.

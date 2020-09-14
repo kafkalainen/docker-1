@@ -1,0 +1,4 @@
+#!/bin/bash
+#We'll use inspect tool to get the interplanetary coordinates of the (IP) of the container, that holds the overlord. 
+#This will give you IP of the container.
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' 042939996ef8

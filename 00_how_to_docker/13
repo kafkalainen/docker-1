@@ -1,0 +1,3 @@
+#!/bin/bash
+#To gaze upon the zerglings, you can use docker inspect.
+docker inspect -f '{{.Config.Env}}' spawning-pool
