@@ -17,8 +17,8 @@ EXPOSE 9987
 EXPOSE 10011
 EXPOSE 30033
 RUN useradd -ms /bin/bash teamspeak
-RUN apt-get update
-RUN apt-get dist-upgrade
+RUN apt-get update -y
+RUN apt-get dist-upgrade -y
 RUN apt-get install wget bzip2 cron -y
 #RUN apt-get install iptables mariadb-server wget bzip2 -y
 #RUN iptables -A INPUT -p udp --dport 9987 -j ACCEPT && \

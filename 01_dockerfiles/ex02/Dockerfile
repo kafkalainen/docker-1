@@ -15,3 +15,9 @@
 FROM ft-rails:on-build
 EXPOSE 3000
 CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
+#rails "s = server -b defines that from any ip is possible and it is bound to port 3000.
+#to build ft-rails:on-build do:
+#download repository as rails-app/ to rails-container/
+#docker build rails-container/ --tag ft-rails:on-build
+#docker build . --tag webpage
+#docker run -it --name testpage -p 3000:3000 -d ft-rails:on-build
