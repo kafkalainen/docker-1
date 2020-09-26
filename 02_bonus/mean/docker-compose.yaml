@@ -1,0 +1,24 @@
+version: '3.0'
+services:
+ angular:
+  build: front_end
+  ports:
+  - "8888:80"
+  depends_on:
+  - express
+ 
+ express: 
+  build: back_end
+  links:
+  - db
+  depends_on:
+  - db
+  ports:
+  - "3000:3000"
+ 
+ db:
+  image: mongo
+  ports:
+  - "27017:27017"
+  volumes:
+  - "./db_data:/data/db"
