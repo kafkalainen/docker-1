@@ -6,7 +6,6 @@
 #to be run directly in the container.
 #First I ran the command to install a debian
 #docker run -it debian /bin/bash
-#Then update container
-apt update -y
-#Then get necessary files:
-apt install build-essential git
+#Then update, upgrade and finally install build-essential. 
+apt-get update -y && apt-get upgrade -y && apt-get install build-essential git vim
+#Although vim is not integral to use git, it is integral to actually test the command.

@@ -4,4 +4,4 @@
 #Volume names must be unique among drivers.
 #This means you cannot use the same volume name with two different drivers.
 #More precisely:
-docker volume create --name hatchery
+docker volume create hatchery

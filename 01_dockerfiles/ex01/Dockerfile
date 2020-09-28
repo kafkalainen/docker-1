@@ -17,13 +17,9 @@ EXPOSE 9987
 EXPOSE 10011
 EXPOSE 30033
 RUN useradd -ms /bin/bash teamspeak
-RUN apt-get update -y
-RUN apt-get dist-upgrade -y
-RUN apt-get install wget bzip2 cron -y
-#RUN apt-get install iptables mariadb-server wget bzip2 -y
-#RUN iptables -A INPUT -p udp --dport 9987 -j ACCEPT && \
-#RUN	iptables -A INPUT -p tcp --dport 10011 -j ACCEPT && \
-#	iptables -A INPUT -p tcp --dport 30033 -j ACCEPT
+RUN apt-get update -y && \
+	apt-get dist-upgrade -y && \ 
+	apt-get install wget bzip2 cron -y
 RUN su teamspeak
 WORKDIR /home/teamspeak
 RUN wget https://files.teamspeak-services.com/releases/server/3.12.1/teamspeak3-server_linux_amd64-3.12.1.tar.bz2 && \

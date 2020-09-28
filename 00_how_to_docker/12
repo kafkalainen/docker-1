@@ -6,8 +6,9 @@
 #itself is named spawning-pool
 ##
 #Assign name spawing-pool for the mysql container.
-#set --restart unless-stopped
+#set --restart on-failure
 #You can use --volume to designate already created volume of hatchery.
 #Add root password with --env option. Every --env variable needs to be set seperately.
 #Use -d  mysql:latest to get the latest version and start in the background.
-docker run --name spawning-pool --restart unless-stopped --volume hatchery --env MYSQL_ROOT_PASSWORD=Kerrigan --env MYSQL_DATABASE=zerglings -d mysql:latest
+#docker exec -it spawning-pool mysql -uroot -p test that container has indeed all installed with password Kerrigan.
+docker run --name spawning-pool --restart on-failure --volume hatchery:/var/lib/mysql --env MYSQL_ROOT_PASSWORD=Kerrigan --env MYSQL_DATABASE=zerglings -d mysql:latest
