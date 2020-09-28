@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+ dosbox:
+  build: .
+  security_opt:
+    - apparmor:unconfined
+  ports:
+  - "6080:6080"
