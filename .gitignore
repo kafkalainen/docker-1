@@ -1,5 +1,4 @@
-01_dockerfiles/ex02/rails-app/
-01_dockerfiles/ex02/rails-container/rails-app/
+01_dockerfiles/ex02/app/
 02_bonus/dev_project_dockerfiles/react/app/
 02_bonus/mean/back_end/server/node_modules/
 02_bonus/mean/front_end/quote-app/

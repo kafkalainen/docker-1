@@ -1,0 +1,23 @@
+#git clone some ruby app as a seperate folder.
+#I created  a simple rails app by following guides on Ruby on rails site to do a blog page.
+#There is a version clash in my environment, so I chose to use earlier version of Ruby.
+#Otherwise I would have used ruby:latest
+#FROM ruby:latest
+FROM ruby:2.7.0
+RUN	apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get install build-essential gem libpq-dev sqlite3 -y && \
+	curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+	apt-get install -y nodejs && \
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+	apt-get update && apt-get install yarn -y && \
+	yarn --version && \
+	nodejs --version
+COPY ./app /opt/app
+WORKDIR /opt/app
+ONBUILD EXPOSE 3000
+#ONBUILD WORKDIR /opt/app
+ONBUILD RUN gem install bundler rails rake && bundle install && yarn install
+ONBUILD RUN rake db:migrate
+ONBUILD RUN rake db:seed

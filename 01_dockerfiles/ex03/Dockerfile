@@ -15,7 +15,6 @@ RUN apt-get update -y && \
 	apt-get install xterm curl openssh-server ca-certificates tzdata postfix -y
 RUN curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
 RUN apt-get install gitlab-ce
-#RUN sed -i "s/external_url 'http:\/\/gitlab.example.com'/external_url 'http:\/\/0.0.0.0'/" /etc/gitlab/gitlab.rb
 RUN sed -i "s/# grafana\['enable'\] = true/grafana['enable'] = false/g" /etc/gitlab/gitlab.rb
 RUN sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/" /etc/ssh/sshd_config
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \

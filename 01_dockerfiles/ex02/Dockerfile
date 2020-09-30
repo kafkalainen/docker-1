@@ -5,8 +5,8 @@
 #EXPOSE
 #CMD 3000
 #["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
-#Your generic container should install, = ruby on rails container
-#via a ruby container, all the necessary dependencies and gems, = ruby container
+#Your generic container should install,
+#via a ruby container, all the necessary dependencies and gems,
 #then copy your rails application in the /opt/app folder of your 
 #container. Docker has to install the approtiate gems when it builds, but also launch
 #the migrations and the db population for your application. The child Dockerfile should
@@ -16,8 +16,8 @@ FROM ft-rails:on-build
 EXPOSE 3000
 CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000"]
 #rails "s = server -b defines that from any ip is possible and it is bound to port 3000.
-#to build ft-rails:on-build do:
-#download repository as rails-app/ to rails-container/
+#To build ft-rails:on-build do:
+#Download repository as rails-app/ to rails-container/
 #docker build rails-container/ --tag ft-rails:on-build
 #docker build . --tag webpage
 #docker run -it --name testpage -p 3000:3000 -d ft-rails:on-build
