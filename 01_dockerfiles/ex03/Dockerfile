@@ -17,6 +17,12 @@ RUN curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/sc
 RUN apt-get install gitlab-ce
 RUN sed -i "s/# grafana\['enable'\] = true/grafana['enable'] = false/g" /etc/gitlab/gitlab.rb
 RUN sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes/" /etc/ssh/sshd_config
+RUN	sed -i "s/^external_url.*$/external_url 'https:\/\/127.0.0.1'/" /etc/gitlab/gitlab.rb && \
+	mkdir -p /etc/gitlab/ssl && \
+	chmod 755 /etc/gitlab/ssl && \
+	openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes \
+	-keyout /etc/gitlab/ssl/127.0.0.1.key -out /etc/gitlab/ssl/127.0.0.1.crt \
+	-subj "/CN=127.0.0.1" -addext "subjectAltName=IP:192.168.99.100"
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && \
 			gitlab-ctl reconfigure && \
 			service ssh restart && \
